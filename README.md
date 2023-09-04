@@ -131,3 +131,27 @@ Creamos el proyecto en [spring.io](https://start.spring.io/) con las siguientes 
     </dependency>
 </dependencies>
 ````
+
+## Convirtiendo Proyecto en un Proyecto Modular
+
+- En el `pom.xml` cambiamos el tipo de `packaging` que por defecto es `jar` y ahora será `<packaging>pom</packaging>`.
+- Eliminamos el directorio `/src`, ya que ahora nuestro proyecto es del tipo `pom` y será el proyecto padre que tendrá
+  su propio `pom.xml` y dentro de ese proyecto padre agregaremos los demás proyectos que sí tendrán el
+  packaging en `.jar`
+- Para más información sobre cómo crear proyectos `multi-módulo con intelliJ Idea` ver mis dos repositorios:
+  [my-company-project_multi-module-maven](https://github.com/magadiflo/my-company-project_multi-module-maven.git) y
+  [springboot-multiple-maven-modules](https://github.com/magadiflo/springboot-multiple-maven-modules.git)
+
+## Agregando microservicios al proyecto padre
+
+Crearemos dos proyectos de spring boot sin dependencias y lo agregaremos a este proyecto padre. Al finalizar tendríamos
+algo así:
+
+````
+|-spring-boot-for-apache-kafka
+|  |- spring-boot-consumer
+|  |- spring-boot-provider
+````
+
+Obviamente, para que los dos módulos agregados (microservicios) sean parte del módulo padre necesitamos configurar el
+pom.xml de cada uno.
