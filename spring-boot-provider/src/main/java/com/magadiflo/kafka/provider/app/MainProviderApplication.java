@@ -16,7 +16,7 @@ public class MainProviderApplication {
     @Bean
     public CommandLineRunner init(KafkaTemplate<String, String> kafkaTemplate) {
         return args -> {
-            kafkaTemplate.send("magadiflo-topic", "Hola mundo con Kafka desde Spring Boot");
+            kafkaTemplate.send("magadiflo-topic", "Soy el proveedor, este es el segundo mensaje. Prueba Final.");
         };
     }
 
